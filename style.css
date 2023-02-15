@@ -2,11 +2,45 @@
 	font-family: Helvetica;
 	font-size: 22px;
 	color: seashell;
+
+	--max-width: 1200px;
+	--flex-area-width: 1000px;
+	--nav-bar-height: 69px;
+	--nav-bar-total-height: calc(var(--nav-bar-height) + 1px);
+}
+
+#main-div
+{
+	background-color: black;
+	width: 100%;
+	max-width: var(--max-width);
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+
+	box-shadow: 30px 0px 40px black, -10px 0px 40px black;
+}
+
+@media (max-width: 1000px)
+{
+	*{
+		--flex-area-width: 900px;
+	}
+}
+
+@media (max-width: 680px)
+{
+	*{
+		--flex-area-width: 600px;
+		--nav-bar-height: 139px;
+	}
 }
 
 body{
 	margin-top: 0px;
 	margin-left: 0px;
+	margin-bottom: 0px;
 
 	width: 100%;
 
@@ -14,11 +48,14 @@ body{
 	flex-flow: column;
 	align-items: center;
 
-	background-color: black;
+	background-image: url(https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX5481950.jpg);
+	background-attachment: fixed;
+	background-repeat: repeat;
+
 }
 section{
-	margin-top:70px;
-	max-width: 1200px;
+	margin-top: var(--nav-bar-total-height);
+	max-width: var(--max-width);
 	width: 100%;
 
 	opacity: 0.9;
@@ -32,10 +69,7 @@ header{
 	margin-top:0px;
 	width:100%;
 }
-.empty-span{
-	width: 200px;
-	opacity: 0;
-}
+
 nav img{
 	position: fixed;
 	height: 50px;
@@ -44,30 +78,28 @@ nav img{
 	opacity: 0.9;
 }
 .top-bar-item{
-	min-height: 69px;
+	min-height: var(--nav-bar-height);
 	opacity: 0.9;
 }
 #top-bar{
 	margin-top: 0px;
 	display: flex;
 	justify-content: flex-end;
+	align-items: flex-end;
 	flex-wrap: wrap;
 }
 
 #site-navigation{
 	display:flex;
 	justify-content: flex-end;
-}
 
-nav div img{
-	position: relative;
-	opacity: 0;
+	max-height: 69px;
 }
 
 #site-navigation div{
 	text-decoration: underline;
 	text-align: center;
-	line-height:60px;
+	line-height: 60px;
 	white-space: nowrap;
 
 	margin-left: 12px;
@@ -76,7 +108,7 @@ nav div img{
 
 .href-target{
 	position: relative;
-	bottom: 70px;
+	bottom: var(--nav-bar-total-height);
 }
 
 #intro{
@@ -89,6 +121,7 @@ nav div img{
 	background-size:cover;
 
 	height: 700px;
+	margin-top: var(--nav-bar-total-height);
 }
 
 #intro-text
@@ -115,7 +148,7 @@ h4{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	max-width: 1000px;
+	max-width: var(--flex-area-width);
 }
 
 #products-container{
@@ -142,6 +175,7 @@ h4{
  #locations{
  	display: flex;
 	flex-direction: column;
+	align-items: center;
 
  	min-height: 500px;
  	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg?_gl=1*fo6r70*_ga*ODkzMzgyODY0NS4xNjc1MDIxMjc2*_ga_3LRZM6TM9L*MTY3NTQxMzA3NC4xOC4xLjE2NzU0MTM2NzYuMC4wLjA.);
@@ -157,6 +191,7 @@ h4{
 	position: relative;
 
 	min-height: 100px;
+	width: 100%;
  }
  .empty-space span{
 	width: 100%;
@@ -176,6 +211,8 @@ h4{
 	margin-top: 0px;
 
 	flex-grow: 0;
+
+	max-width: var(--flex-area-width);
  }
  .locations-item{
  	display: flex;
@@ -186,10 +223,7 @@ h4{
  	line-height: 68px;
 
  	width: 300px;
- 	margin-left: 20px;
- 	margin-right:20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+ 	margin: 10px;
 
  	background-color: black;
  }
@@ -220,6 +254,7 @@ h4{
 
  footer{
 	text-align: left;
+	max-width: var(--max-width);
 	width: 100%;
  }
  footer p{
